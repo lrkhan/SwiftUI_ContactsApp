@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ContactMeApp: App {
+    @StateObject var appData: Contacts = loadContacts()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(appData)
         }
     }
 }

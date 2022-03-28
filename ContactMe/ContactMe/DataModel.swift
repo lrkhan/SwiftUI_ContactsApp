@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-class Person: Codable {
+class Person: Codable, ObservableObject, Identifiable {
     var id = UUID()
     @Published var name: [String]
     @Published var phoneNumber: String
@@ -56,8 +56,12 @@ class Person: Codable {
     
 }
 
-class Contacts: Codable {
-    @Published var peopleList: [Person] = []
+class Contacts: Codable, ObservableObject {
+    @Published var peopleList: [Person]
+    
+    init() {
+        peopleList = []
+    }
     
     enum CodingKeys: CodingKey {
         case peopleList
@@ -74,6 +78,82 @@ class Contacts: Codable {
         
         self.peopleList = try container.decode([Person].self, forKey: .peopleList)
     }
+    
+    var tempData: [Person] = [
+        Person(name: ["Jone", "Doe"], phoneNumber: "12342334", email: "213234234"),
+        Person(name: ["Jne", "Do"], phoneNumber: "12342334", email: "213234234"),
+        Person(name: ["Joe", "De"], phoneNumber: "12342334", email: "213234234"),
+        Person(name: ["elt", "Oe"], phoneNumber: "12342334", email: "213234234"),
+        Person(name: ["Jede", "Poe"], phoneNumber: "12342334", email: "213234234")
+    ]
+    
+    func updateContact(id: UUID, newInfo: Person) {
+        for person in peopleList {
+            if person.id == id {
+                person.name = newInfo.name
+                person.phoneNumber = newInfo.phoneNumber
+                person.email = newInfo.email
+                person.profilePic = newInfo.profilePic
+                
+                print("User Found and Updated")
+                
+                return
+            }
+        }
+        
+        print("user not found")
+    }
 }
 
+func getDocumentsDirectory() -> URL {
+    // find all possible documents directories for this user
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+    // just send back the first one, which should to be the only one
+    return paths[0]
+}
+
+
+func loadContacts() -> Contacts {
+    do {
+        let fileURL = try FileManager.default
+            .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            .appendingPathComponent("userData.json")
+        
+        let data = try Data(contentsOf: fileURL)
+        let userData = try JSONDecoder().decode(Contacts.self, from: data)
+        
+        print("Loaded User Successfully")
+        
+        return userData
+    } catch {
+        print("error reading user data")
+        print(error)
+        
+        let usr = Contacts()
+        saveContacts(usr)
+        
+        return Contacts()
+    }
+}
+
+func saveContacts(_ user: Contacts) {
+    do {
+        let fileURL = try FileManager.default
+            .url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appendingPathComponent("userData.json")
+        
+        try JSONEncoder()
+            .encode(user)
+            .write(to: fileURL)
+        
+        print("Writing complete")
+        
+        return
+    } catch {
+        print("error writing user data")
+        
+        return
+    }
+}
 
