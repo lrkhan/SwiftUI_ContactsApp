@@ -14,6 +14,7 @@
 		9804501027F1F1BD0095F756 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9804500F27F1F1BD0095F756 /* DataModel.swift */; };
 		986694FD27F200C0009FA282 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986694FC27F200C0009FA282 /* ContactView.swift */; };
 		986694FF27F2021E009FA282 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986694FE27F2021E009FA282 /* AddContactView.swift */; };
+		9866950527F24496009FA282 /* EMailValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866950427F24496009FA282 /* EMailValid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		9804500F27F1F1BD0095F756 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		986694FC27F200C0009FA282 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		986694FE27F2021E009FA282 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		9866950427F24496009FA282 /* EMailValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMailValid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				986694FC27F200C0009FA282 /* ContactView.swift */,
 				986694FE27F2021E009FA282 /* AddContactView.swift */,
 				9804500F27F1F1BD0095F756 /* DataModel.swift */,
+				9866950427F24496009FA282 /* EMailValid.swift */,
 				9804500527F1F1AE0095F756 /* Assets.xcassets */,
 				9804500727F1F1AE0095F756 /* Preview Content */,
 			);
@@ -151,6 +154,7 @@
 				9804500227F1F1AD0095F756 /* ContactMeApp.swift in Sources */,
 				9804501027F1F1BD0095F756 /* DataModel.swift in Sources */,
 				986694FD27F200C0009FA282 /* ContactView.swift in Sources */,
+				9866950527F24496009FA282 /* EMailValid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

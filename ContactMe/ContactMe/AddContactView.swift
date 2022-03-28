@@ -63,7 +63,7 @@ struct AddContactView: View {
                         }
                     }
                 }
-                .alert("All Fields Must Be Filled", isPresented: $alertToggle) {
+                .alert("All Fields Must Be Filled Correctly", isPresented: $alertToggle) {
                             Button("OK", role: .cancel) { }
                         }
         }
@@ -83,7 +83,7 @@ struct AddContactView: View {
     }
     
     func hasValues() -> Bool {
-        return (!firstName.isEmpty && !lastName.isEmpty && !email.isEmpty && !phoneNumber.isEmpty)
+        return (!firstName.isEmpty && !lastName.isEmpty && (!email.isEmpty && checkIfValidEmail(input: email)) && !phoneNumber.isEmpty)
     }
 }
 

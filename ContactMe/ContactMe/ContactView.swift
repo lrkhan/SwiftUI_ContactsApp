@@ -65,7 +65,7 @@ struct ContactView: View {
                         let newUpdates = Person(
                             name: [firstName.isEmpty ? personInfo.name[0]: firstName, lastName.isEmpty ? personInfo.name[1]: lastName],
                             phoneNumber: phoneNumber.isEmpty ? personInfo.phoneNumber : phoneNumber,
-                            email: email.isEmpty ? personInfo.email: email)
+                            email: (email.isEmpty && !checkIfValidEmail(input: email)) ? personInfo.email: email)
                         
                         contactList.updateContact(id: personInfo.id, newInfo: newUpdates)
                         
