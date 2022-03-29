@@ -80,6 +80,7 @@ class Contacts: Codable, ObservableObject {
     }
     
     var tempData: [Person] = [
+        Person(name: ["Jane", "Doe"], phoneNumber: "1234567890", email: "ape@apple.com"),
         Person(name: ["Jone", "Doe"], phoneNumber: "12342334", email: "213234234"),
         Person(name: ["Jne", "Do"], phoneNumber: "12342334", email: "213234234"),
         Person(name: ["Joe", "De"], phoneNumber: "12342334", email: "213234234"),
@@ -157,3 +158,4 @@ func saveContacts(_ user: Contacts) {
     }
 }
 
+var janeDoeTemp = Contacts().tempData[0]

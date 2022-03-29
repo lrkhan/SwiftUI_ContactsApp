@@ -17,44 +17,77 @@ struct ContactView: View {
     @State private var phoneNumber: String = ""
     @State private var email: String = ""
     
+    
+    @State var image: Image?
+    @State private var inputImage: UIImage?
+    @State private var showingImgPicker = false
+    
     @State private var isEditing = false
     
     var body: some View {
         Group {
             if isEditing {
-                Form{
+                VStack {
                     
-                    Section("Name"){
-                        TextField("\(personInfo.name[0])", text: $firstName)
-                        TextField("\(personInfo.name[1])", text: $lastName)
+                    HStack {
+                        Spacer()
+                        
+                        Button(action: {
+                            showingImgPicker = true
+                        }){
+                            ProfilePictureView(img: $image, isContactView: true, person: $personInfo)
+                        }
+                        .onChange(of: inputImage){ _ in loadImage()}
+                        
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    Form{
+                        Section("Name"){
+                            TextField("\(personInfo.name[0])", text: $firstName)
+                            TextField("\(personInfo.name[1])", text: $lastName)
+                        }
+                        
+                        Section("Email"){
+                            TextField("\(personInfo.email)", text: $email)
+                                .keyboardType(.emailAddress)
+                                .textInputAutocapitalization(.never)
+                        }
+                        
+                        Section("Phone"){
+                            TextField("\(personInfo.phoneNumber)", text: $phoneNumber)
+                                .keyboardType(.phonePad)
+                        }
+                        
                     }
                     
-                    Section("Email"){
-                        TextField("\(personInfo.email)", text: $email)
-                            .keyboardType(.emailAddress)
-                            .textInputAutocapitalization(.never)
-                    }
-                    
-                    Section("Phone"){
-                        TextField("\(personInfo.phoneNumber)", text: $phoneNumber)
-                            .keyboardType(.phonePad)
-                    }
-                    
-                }
-                
                     .navigationTitle("Edit Contact")
+                }
             } else {
-                Form{
-                    Section("Phone Number"){
-                        Text(personInfo.phoneNumber)
+                VStack {
+                    
+                    HStack {
+                        Spacer()
+                        
+                            ProfilePictureView(img: $image, isContactView: true, person: $personInfo)
+                        
+                        Spacer()
+                    }
+                    .padding()
+                    
+                    Form{
+                        Section("Phone Number"){
+                            Text(personInfo.phoneNumber)
+                        }
+                        
+                        Section("Email"){
+                            Text(personInfo.email)
+                        }
                     }
                     
-                    Section("Email"){
-                        Text(personInfo.email)
-                    }
+                    .navigationTitle("\(personInfo.name[0]) \(personInfo.name[1])")
                 }
-                
-                .navigationTitle("\(personInfo.name[0]) \(personInfo.name[1])")
             }
         }
         .toolbar{
@@ -66,6 +99,10 @@ struct ContactView: View {
                             name: [firstName.isEmpty ? personInfo.name[0]: firstName, lastName.isEmpty ? personInfo.name[1]: lastName],
                             phoneNumber: phoneNumber.isEmpty ? personInfo.phoneNumber : phoneNumber,
                             email: (email.isEmpty && !checkIfValidEmail(input: email)) ? personInfo.email: email)
+                        
+                        if let img = inputImage {
+                            newUpdates.profilePic = saveImage(img, id: personInfo.id)
+                        }
                         
                         contactList.updateContact(id: personInfo.id, newInfo: newUpdates)
                         
@@ -88,12 +125,21 @@ struct ContactView: View {
                 }
             }
         }
+        .sheet(isPresented: $showingImgPicker) {
+            ImagePicker(image: $inputImage)
+        }
     }
+    
     func resetVars() {
         firstName = ""
         lastName  = ""
         email = ""
         phoneNumber = ""
+    }
+    
+    func loadImage() {
+        guard let inputImage = inputImage else { return }
+        image = Image(uiImage: inputImage)
     }
 }
 

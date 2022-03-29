@@ -15,6 +15,8 @@
 		986694FD27F200C0009FA282 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986694FC27F200C0009FA282 /* ContactView.swift */; };
 		986694FF27F2021E009FA282 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986694FE27F2021E009FA282 /* AddContactView.swift */; };
 		9866950527F24496009FA282 /* EMailValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866950427F24496009FA282 /* EMailValid.swift */; };
+		9866950727F34AA3009FA282 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866950627F34AA3009FA282 /* ImagePicker.swift */; };
+		9866950927F3513B009FA282 /* ProfilePictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866950827F3513B009FA282 /* ProfilePictureView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		986694FC27F200C0009FA282 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		986694FE27F2021E009FA282 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		9866950427F24496009FA282 /* EMailValid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMailValid.swift; sourceTree = "<group>"; };
+		9866950627F34AA3009FA282 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		9866950827F3513B009FA282 /* ProfilePictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureView.swift; sourceTree = "<group>"; };
+		9866950A27F36F00009FA282 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +64,13 @@
 		9804500027F1F1AD0095F756 /* ContactMe */ = {
 			isa = PBXGroup;
 			children = (
+				9866950A27F36F00009FA282 /* Info.plist */,
 				9804500127F1F1AD0095F756 /* ContactMeApp.swift */,
 				9804500327F1F1AD0095F756 /* ContentView.swift */,
 				986694FC27F200C0009FA282 /* ContactView.swift */,
 				986694FE27F2021E009FA282 /* AddContactView.swift */,
+				9866950827F3513B009FA282 /* ProfilePictureView.swift */,
+				9866950627F34AA3009FA282 /* ImagePicker.swift */,
 				9804500F27F1F1BD0095F756 /* DataModel.swift */,
 				9866950427F24496009FA282 /* EMailValid.swift */,
 				9804500527F1F1AE0095F756 /* Assets.xcassets */,
@@ -152,6 +160,8 @@
 				9804500427F1F1AD0095F756 /* ContentView.swift in Sources */,
 				986694FF27F2021E009FA282 /* AddContactView.swift in Sources */,
 				9804500227F1F1AD0095F756 /* ContactMeApp.swift in Sources */,
+				9866950927F3513B009FA282 /* ProfilePictureView.swift in Sources */,
+				9866950727F34AA3009FA282 /* ImagePicker.swift in Sources */,
 				9804501027F1F1BD0095F756 /* DataModel.swift in Sources */,
 				986694FD27F200C0009FA282 /* ContactView.swift in Sources */,
 				9866950527F24496009FA282 /* EMailValid.swift in Sources */,
@@ -286,6 +296,8 @@
 				DEVELOPMENT_TEAM = TDL4PT97XP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ContactMe/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +327,8 @@
 				DEVELOPMENT_TEAM = TDL4PT97XP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ContactMe/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
