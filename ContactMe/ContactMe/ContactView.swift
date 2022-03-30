@@ -77,12 +77,12 @@ struct ContactView: View {
                     .padding()
                     
                     Form{
-                        Section("Phone Number"){
-                            Text(personInfo.phoneNumber)
-                        }
-                        
                         Section("Email"){
                             Text(personInfo.email)
+                        }
+                        
+                        Section("Phone Number"){
+                            Text(personInfo.phoneNumber)
                         }
                     }
                     
