@@ -11,18 +11,13 @@ Feel Free to Check Out the Code!
 
 ## ScreenShots
 
-<img src="./Images/mainSearch.png" width="250" alt="Search Bar for Contacts" class="center">
-<img src="./Images/contactSearch.png" width="250" alt="Contact Search" class="center">
-
-
-
 ### Main Screen - Blank
 <img src="./Images/mainBlank.png" width="250" alt="Main Screen Blank Image" class="center">
 
 When the user first opens the app they are greated with a blank screen with an "Add Person" button.
 
 ### Adding a Contact
-<<img src="./Images/addNew.png" width="250" alt="Add New Contact Sheet" class="center">
+<img src="./Images/addNew.png" width="250" alt="Add New Contact Sheet" class="center">
 
 Clicking on the "Add Person" button brings up the add new contact sheet. The user can fill in the contacts' name, email, phone number, and a potential profile picture.
 
@@ -66,7 +61,7 @@ The information that the user updates changes and gets saved fro that contact.
 
 Swiping from left to right on an contact on the main screen will bring up the ability to delete a contact.
 
-### Rolling For An Option
+### Searching for Contacts
 <img src="./Images/mainSearch.png" width="250" alt="Search Bar for Contacts" class="center">
 
 Pulling down from the top reveals the search function of the app. 
